@@ -103,7 +103,7 @@ public  class  Info implements Comparable<Info> {
 
     @Override
     public int compareTo(Info o) {
-        return year.compareTo(o.getYear());
+        return duration.compareTo(o.getDuration());
         
     }  
     
