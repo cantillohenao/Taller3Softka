@@ -2,6 +2,7 @@ package library;
 
 import java.util.Date;
 import java.util.stream.Stream;
+import java.util.Calendar;
 
 /**
  *
@@ -28,7 +29,17 @@ public class Info implements Comparable<Info> {
         this.gender = gender;
         this.cover = cover;
         this.description = description;
+        
     }
+
+    public int getSongId() {
+        return songId;
+    }
+
+    public void setSongId(int songId) {
+        this.songId = songId;
+    }
+
 
     public String getArtist() {
         return artist;
@@ -103,13 +114,13 @@ public class Info implements Comparable<Info> {
 
     @Override
     public int compareTo(Info o) {
-        if (o.getDuration()> duration) {
+        if (o.getDuration() > duration) {
             return -1;
-        } else if (o.getDuration()> duration) {
+        } else if (o.getDuration() > duration) {
             return 0;
         } else {
             return 1;
         }
     }
-    
+
 }

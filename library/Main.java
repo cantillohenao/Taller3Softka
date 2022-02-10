@@ -20,19 +20,18 @@ public class Main {
         int opcionOrder;
         int optionOderderMajor;
         int opcionOrderDate;
-
         List<Info> infoList = new ArrayList<>();
-        infoList.add(new Info("muse", "paradise", 1, 2015, 2.11f,
-                "reggae", "memories.jpg", "Cancion 1 del album memories"));
-        infoList.add(new Info("metallica", "resistance", 2, 2015, 1.11f,
-                "reggae", "memories.jpg", "Cancion 2 del album memories"));
-        infoList.add(new Info("lamda", "madness", 3, 2003, 3.12f,
-                "rock", "memories.jpg", "Cancion 3 del album memories"));
-        infoList.add(new Info("muse", "knights", 4, 2001, 4.20f,
-                "punk", "memories.jpg", "Cancion 4 del album memories"));
-        infoList.add(new Info("muse", "Panic Station", 4, 2001, 4.11f,
-                "jazz", "memories.jpg", "Cancion 4 del album memories"));
-        String[] genderList = {"rock", "punk", "jazz", "reggae"};
+        infoList.add(new Info("muse", "survival", 1, 2015, 2.11f,
+                "rock", "the2ndlaw.jpg", "Cancion 1 del album memories") );
+        infoList.add(new Info("metallica", "one", 2, 2015, 1.11f,
+                "metal", "And Justice for All.jpg", "Cancion 2 del album memories"));
+        infoList.add(new Info("escape the fate", "situation", 3, 2003, 3.12f,
+                "rock", "DyingIsYourLatestFashion.jpg", "Cancion 3 del album memories"));
+        infoList.add(new Info("ghost", "Dance macabre", 4, 2001, 4.20f,
+                "punk", "prequelle.jpg", "Cancion 4 del album memories"));
+        infoList.add(new Info("slipknot", "Psychosocial", 4, 2001, 4.11f,
+                "metal", "AllHopeIsGone.jpg", "Cancion 4 del album memories"));
+        String[] genderList = {"rock", "punk", "metal"};
 
         System.out.println("Que deseas hacer? 1) crear playlist 2)filtrar canciones "
                 + "de la lista de reproduccion completa. 3) organizar lista de mayor a menor " + "\n" + " Ingresa el numero de la opcion ");
@@ -51,7 +50,7 @@ public class Main {
                     opcionYear = scanner.nextInt();
                     infoList.stream().filter(l -> l.getYear() == opcionYear).forEach(System.out::println);
                 } else if (opcionFilter == 2) {
-                    System.out.println("Que genero deseas filtrar: 1)rock 2)punk 3) jazz 4)reggae. " + "\n" + " Ingresa el numero correspondiente");
+                    System.out.println("Que genero deseas filtrar: 1)rock 2)punk 3) metal. " + "\n" + " Ingresa el numero correspondiente");
                     opcionGender = scanner.nextInt();
                     infoList.stream().filter(l -> l.getGender() == genderList[opcionGender - 1]).forEach(System.out::println);
                 }
