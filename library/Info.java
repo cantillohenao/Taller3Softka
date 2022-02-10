@@ -7,19 +7,19 @@ import java.util.stream.Stream;
  *
  * @author JUANES
  */
-public  class  Info implements Comparable<Info> {
+public class Info implements Comparable<Info> {
 
     public String artist;
     public String title;
-    public Integer songId;
-    public Long year;
-    public Float duration;
+    public int songId;
+    public long year;
+    public float duration;
     public String gender;
     public String cover;
     public String description;
-    String[] example = {};
 
-    public Info(String artist, String title, int songId, long year, float duration, String gender, String cover, String description) {
+    public Info(String artist, String title, int songId, long year, float duration,
+            String gender, String cover, String description) {
         this.artist = artist;
         this.title = title;
         this.songId = songId;
@@ -99,12 +99,17 @@ public  class  Info implements Comparable<Info> {
         return "Info [artist= " + artist + ", title= " + title + ", songId= "
                 + songId + ", year=" + year + ", duration= " + duration + ", gender= "
                 + gender + ", cover= " + cover + ", description= " + description + "]" + "\n";
-    }  
+    }
 
     @Override
     public int compareTo(Info o) {
-        return duration.compareTo(o.getDuration());
-        
-    }  
+        if (o.getDuration()> duration) {
+            return -1;
+        } else if (o.getDuration()> duration) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
     
 }
