@@ -1,8 +1,5 @@
 package library;
 
-import java.util.Date;
-import java.util.stream.Stream;
-
 /**
  *
  * @author JUANES
@@ -18,6 +15,7 @@ public  class  Info implements Comparable<Info> {
     public String cover;
     public String description;
     String[] example = {};
+    String namePlayList;
 
     public Info(String artist, String title, int songId, long year, float duration, String gender, String cover, String description) {
         this.artist = artist;
@@ -29,6 +27,7 @@ public  class  Info implements Comparable<Info> {
         this.cover = cover;
         this.description = description;
     }
+
 
     public String getArtist() {
         return artist;
@@ -46,12 +45,12 @@ public  class  Info implements Comparable<Info> {
         this.title = title;
     }
 
-    public int getSongid() {
+    public int getSongId() {
         return songId;
     }
 
-    public void setSongid(int Songid) {
-        this.songId = Songid;
+    public void setSongId(int SongId) {
+        this.songId = SongId;
     }
 
     public long getYear() {
@@ -99,7 +98,7 @@ public  class  Info implements Comparable<Info> {
         return "Info [artist= " + artist + ", title= " + title + ", songId= "
                 + songId + ", year=" + year + ", duration= " + duration + ", gender= "
                 + gender + ", cover= " + cover + ", description= " + description + "]" + "\n";
-    }  
+    }
 
     @Override
     public int compareTo(Info o) {

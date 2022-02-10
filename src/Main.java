@@ -1,5 +1,9 @@
 package library;
 
+import classes.PlayList;
+import classes.Song;
+
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -19,6 +23,9 @@ public class Main {
         int opcionOrder;
         int opcionOderderMajor;
         int opcionOrderDate;
+        String namePlayList;
+
+        ArrayList<Song> songs = new ArrayList<>();
 
         List<Info> infoList = new ArrayList<>();
         infoList.add(new Info("muse", "paradise", 1, 2015, 2.11f, "reggae", "memories.jpg", "Cancion 1 del album memories"));
@@ -34,23 +41,7 @@ public class Main {
         opcion = scanner.nextInt();
         switch (opcion) {
             case 1:
-                System.out.print("Por favor ingrese el nombre del artista: ");
-                String artist = scanner.next();
-                System.out.print("Por favor ingrese el titulo de la playlist: ");
-                String title = scanner.next();
-                System.out.print("Por favor ingrese el id de la playlist: ");
-                Integer songid = scanner.nextInt();
-                System.out.print("Por favor ingrese el año de la playlist: ");
-                Long year = scanner.nextLong();
-                System.out.print("Por favor ingrese la duracion de la playlist: ");
-                Float duration = scanner.nextFloat();
-                System.out.print("Por favor ingrese el genero de la playlist: ");
-                String gender = scanner.next();
-                System.out.print("Por favor ingrese la caratula playlist: ");
-                String cover = scanner.next();
-                System.out.print("Por favor ingrese una descripcion de la playlist: ");
-                String description = scanner.next();
-                System.out.println("La playlist ha sido creada con exito");
+                System.out.println("Hola");
                 break;
             case 2:
                 System.out.println("Que tipo de filtro deseas: 1) por año 2) por genero musical. Ingresa el numero de la opcion.");
