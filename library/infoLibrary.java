@@ -1,25 +1,13 @@
 package library;
 
-import java.util.Date;
-import java.util.stream.Stream;
-import java.util.Calendar;
-
 /**
  *
  * @author JUANES
  */
-public abstract class Info  {
+public class infoLibrary extends Info implements Comparable<Info>{ 
 
-    public String artist;
-    public String title;
-    public int songId;
-    public long year;
-    public float duration;
-    public String gender;
-    public String cover;
-    public String description;
-
-    public Info() {
+    
+    public infoLibrary(int songId, String title, String artist, long year, float duration, String gender, String cover, String description) {
         this.songId = songId;
          this.title = title;
         this.artist = artist;
@@ -29,17 +17,7 @@ public abstract class Info  {
         this.cover = cover;
         this.description = description;
     }
-   
-
-    public int getSongId() {
-        return songId;
-    }
-
-    public void setSongId(int songId) {
-        this.songId = songId;
-    }
-
-
+    
     public String getArtist() {
         return artist;
     }
@@ -56,12 +34,12 @@ public abstract class Info  {
         this.title = title;
     }
 
-    public int getSongid() {
+    public int getSongId() {
         return songId;
     }
 
-    public void setSongid(int Songid) {
-        this.songId = Songid;
+    public void setSongId(int songId) {
+        this.songId = songId;
     }
 
     public long getYear() {
@@ -103,11 +81,15 @@ public abstract class Info  {
     public void setDescription(String description) {
         this.description = description;
     }
-
+    
     @Override
-    public String toString() {
-        return "Info [artist= " + artist + ", title= " + title + ", songId= "
-                + songId + ", year=" + year + ", duration= " + duration + ", gender= "
-                + gender + ", cover= " + cover + ", description= " + description + "]" + "\n";
+    public int compareTo(Info o) {
+        if (o.getDuration() > duration) {
+            return -1;
+        } else if (o.getDuration() > duration) {
+            return 0;
+        } else {
+            return 1;
+        }
     }
 }
