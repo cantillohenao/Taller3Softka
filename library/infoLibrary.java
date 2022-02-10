@@ -4,12 +4,11 @@ package library;
  *
  * @author JUANES
  */
-public class infoLibrary extends Info implements Comparable<Info>{ 
+public class infoLibrary extends Info implements Comparable<Info> {
 
-    
     public infoLibrary(int songId, String title, String artist, long year, float duration, String gender, String cover, String description) {
         this.songId = songId;
-         this.title = title;
+        this.title = title;
         this.artist = artist;
         this.year = year;
         this.duration = duration;
@@ -17,7 +16,7 @@ public class infoLibrary extends Info implements Comparable<Info>{
         this.cover = cover;
         this.description = description;
     }
-    
+
     public String getArtist() {
         return artist;
     }
@@ -81,7 +80,7 @@ public class infoLibrary extends Info implements Comparable<Info>{
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
     @Override
     public int compareTo(Info o) {
         if (o.getDuration() > duration) {
