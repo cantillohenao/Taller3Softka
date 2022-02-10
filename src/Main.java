@@ -28,11 +28,29 @@ public class Main {
         infoList.add(new Info("muse", "Panic Station", 4, 2001, 4.11f, "jazz", "memories.jpg", "Cancion 4 del album memories"));
         String[] genderList = {"rock", "punk", "jazz", "reggae"};
 
-        System.out.println("Que deseas hacer? 1) crear playlist 2)filtrar canciones de la lista de reproduccion completa. 3) organizar lista de mayor a menor Ingresa el numero de la opcion ");
+        System.out.println("Que deseas hacer?");
+        System.out.println("1)Crear playlist. 2)Filtrar canciones de la lista de reproduccion completa. 3)Organizar lista de mayor a menor");
+        System.out.println("Ingresa el numero de la opcion: ");
         opcion = scanner.nextInt();
         switch (opcion) {
             case 1:
-                System.out.print("hola");
+                System.out.print("Por favor ingrese el nombre del artista: ");
+                String artist = scanner.next();
+                System.out.print("Por favor ingrese el titulo de la playlist: ");
+                String title = scanner.next();
+                System.out.print("Por favor ingrese el id de la playlist: ");
+                Integer songid = scanner.nextInt();
+                System.out.print("Por favor ingrese el año de la playlist: ");
+                Long year = scanner.nextLong();
+                System.out.print("Por favor ingrese la duracion de la playlist: ");
+                Float duration = scanner.nextFloat();
+                System.out.print("Por favor ingrese el genero de la playlist: ");
+                String gender = scanner.next();
+                System.out.print("Por favor ingrese la caratula playlist: ");
+                String cover = scanner.next();
+                System.out.print("Por favor ingrese una descripcion de la playlist: ");
+                String description = scanner.next();
+                System.out.println("La playlist ha sido creada con exito");
                 break;
             case 2:
                 System.out.println("Que tipo de filtro deseas: 1) por año 2) por genero musical. Ingresa el numero de la opcion.");
