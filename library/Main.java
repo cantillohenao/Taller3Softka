@@ -1,8 +1,10 @@
 package library;
 
 import library.OrderYear;
-import library.infoLibrary;
+import library.InfoLibrary;
+import java.util.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
@@ -22,26 +24,30 @@ public class Main {
         int optionOderderMajor;
         int opcionOrderDate;
 
-        ArrayList<infoLibrary> myLibrary = new ArrayList<>();
-        infoLibrary s1 = new infoLibrary(1, "one", "metallica", 2015, 1.11f, "metal", "And Justice for All.jpg", "Cancion 2 del album memories");
+        ArrayList<InfoLibrary> myLibrary = new ArrayList<>();
+        InfoLibrary s1 = new InfoLibrary(1, "one", "metallica", 1998, 1.11f, "metal",
+                "And Justice for All.jpg", "Cancion 2 del album memories");
         myLibrary.add(s1);
-        infoLibrary s2 = new infoLibrary(2, "one", "metallica", 2015, 1.11f, "metal", "And Justice for All.jpg", "Cancion 2 del album memories");
+        InfoLibrary s2 = new InfoLibrary(2, "Lose Yourself", "Eminem", 2002, 1.11f, "Rap", 
+                "8 Mile.jpg", "Cancion 1 del album 8 Mile");
         myLibrary.add(s2);
-        infoLibrary s3 = new infoLibrary(3, "situation", "escape the fate", 2003, 3.12f, "rock", "DyingIsYourLatestFashion.jpg", "Cancion 3 del album memories");
+        InfoLibrary s3 = new InfoLibrary(3, "situation", "escape the fate", 2008, 3.12f, "rock",
+                "DyingIsYourLatestFashion.jpg", "Cancion 3 del album memories");
         myLibrary.add(s3);
-        infoLibrary s4 = new infoLibrary(4, "Dance macabre", "ghost", 2001, 4.20f, "punk", "prequelle.jpg", "Cancion 4 del album memories");
+        InfoLibrary s4 = new InfoLibrary(4, "Dance macabre", "ghost", 2018, 4.20f, "punk",
+                "prequelle.jpg", "Cancion 4 del album memories");
         myLibrary.add(s4);
-        infoLibrary s5 = new infoLibrary(5, "Psychosocial", "slipknot", 2001, 4.11f, "metal", "AllHopeIsGone.jpg", "Cancion 4 del album memories");
+        InfoLibrary s5 = new InfoLibrary(5, "Psychosocial", "slipknot", 2008, 4.11f, "metal",
+                "AllHopeIsGone.jpg", "Cancion 4 del album memories");
         myLibrary.add(s5);
-        String[] genderList = {"rock", "punk", "metal"};
-        
+        String[] genderList = {"rock", "punk", "metal", "Rap"};
 
         System.out.println("Que deseas hacer? 1) crear playlist 2)filtrar canciones "
-                + "de la lista de reproduccion completa. 3) organizar lista de mayor a menor " + "4) mostrar libreria completa" + "\n" + " Ingresa el numero de la opcion ");
+                + "de la lista de reproduccion completa. 3) organizar lista de mayor a menor "
+                + "4) mostrar libreria completa" + "\n" + " Ingresa el numero de la opcion ");
         opcion = scanner.nextInt();
         switch (opcion) {
             case 1:
-                System.out.println("Estas es la libreria completa");
                 System.out.println(myLibrary);
                 break;
             case 2:
@@ -50,11 +56,13 @@ public class Main {
                 int opcionFilter;
                 opcionFilter = scanner.nextInt();
                 if (opcionFilter == 1) {
-                    System.out.println("De que año deseas traer musica? " + "\n" + " Ingresa el numero el año. desde 2000 hasta 2022");
+                    System.out.println("De que año deseas traer musica? " 
+                            + "\n" + " Ingresa el numero el año. desde 2000 hasta 2022");
                     opcionYear = scanner.nextInt();
                     myLibrary.stream().filter(l -> l.getYear() == opcionYear).forEach(System.out::println);
                 } else if (opcionFilter == 2) {
-                    System.out.println("Que genero deseas filtrar: 1)rock 2)punk 3) metal. " + "\n" + " Ingresa el numero correspondiente");
+                    System.out.println("Que genero deseas filtrar: 1)rock 2)punk 3) metal. "
+                            + "\n" + " Ingresa el numero correspondiente");
                     opcionGender = scanner.nextInt();
                     myLibrary.stream().filter(l -> l.getGender() == genderList[opcionGender - 1]).forEach(System.out::println);
                 }
@@ -104,6 +112,8 @@ public class Main {
                     }
 
                 }
+            case 4:
+                System.out.println(myLibrary);
         }
     }
 }
