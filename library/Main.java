@@ -23,12 +23,13 @@ public class Main {
         int opcionOrder;
         int optionOderderMajor;
         int opcionOrderDate;
+        int opcionPlayList;
 
         ArrayList<InfoLibrary> myLibrary = new ArrayList<>();
         InfoLibrary s1 = new InfoLibrary(1, "one", "metallica", 1998, 1.11f, "metal",
                 "And Justice for All.jpg", "Cancion 2 del album memories");
         myLibrary.add(s1);
-        InfoLibrary s2 = new InfoLibrary(2, "Lose Yourself", "Eminem", 2002, 1.11f, "Rap", 
+        InfoLibrary s2 = new InfoLibrary(2, "Lose Yourself", "Eminem", 2002, 1.11f, "Rap",
                 "8 Mile.jpg", "Cancion 1 del album 8 Mile");
         myLibrary.add(s2);
         InfoLibrary s3 = new InfoLibrary(3, "situation", "escape the fate", 2008, 3.12f, "rock",
@@ -42,6 +43,8 @@ public class Main {
         myLibrary.add(s5);
         String[] genderList = {"rock", "punk", "metal", "Rap"};
 
+        ArrayList<InfoLibrary> myPlay = new ArrayList<>();
+
         System.out.println("Que deseas hacer? 1) crear playlist 2)filtrar canciones "
                 + "de la lista de reproduccion completa. 3) organizar lista de mayor a menor "
                 + "4) mostrar libreria completa" + "\n" + " Ingresa el numero de la opcion ");
@@ -49,6 +52,15 @@ public class Main {
         switch (opcion) {
             case 1:
                 System.out.println(myLibrary);
+                System.out.println("selecciona ID de la cancion");
+                opcionPlayList = scanner.nextInt();
+                myPlay.add(myLibrary.get(opcionPlayList - 1));
+                System.out.println(myLibrary);
+                System.out.println("selecciona ID de la cancion o muestra playlist nueva");
+                opcionPlayList = scanner.nextInt();
+                myPlay.add(myLibrary.get(opcionPlayList - 1));
+                System.out.println(myPlay);
+
                 break;
             case 2:
                 System.out.println("Que tipo de filtro deseas: 1) por año "
@@ -56,7 +68,7 @@ public class Main {
                 int opcionFilter;
                 opcionFilter = scanner.nextInt();
                 if (opcionFilter == 1) {
-                    System.out.println("De que año deseas traer musica? " 
+                    System.out.println("De que año deseas traer musica? "
                             + "\n" + " Ingresa el numero el año. desde 2000 hasta 2022");
                     opcionYear = scanner.nextInt();
                     myLibrary.stream().filter(l -> l.getYear() == opcionYear).forEach(System.out::println);
