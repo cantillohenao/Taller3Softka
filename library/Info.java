@@ -23,7 +23,7 @@ public abstract class Info {
     public String artist;
     public String title;
     public int songId;
-    public int year;
+    public long year;
     public float duration;
     public String gender;
     public String cover;
@@ -63,7 +63,7 @@ public abstract class Info {
      *
      * @return el año de la cancion
      */
-    public int getYear() {
+    public long getYear() {
         return year;
     }
 
@@ -72,7 +72,7 @@ public abstract class Info {
      *
      * @param year año de la cancion asignado por usuario
      */
-    public void setYear(int year) {
+    public void setYear(long year) {
         this.year = year;
     }
 

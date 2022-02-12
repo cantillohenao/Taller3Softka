@@ -17,7 +17,7 @@ import java.util.GregorianCalendar;
  */
 public class InfoLibrary extends Info implements Comparable<Info> {
 
-    public InfoLibrary(int songId, String title, String artist, int year, float duration, String gender, String cover, String description) {
+    public InfoLibrary(int songId, String title, String artist, long year, float duration, String gender, String cover, String description) {
         this.songId = songId;
         this.title = title;
         this.artist = artist;
@@ -51,7 +51,7 @@ public class InfoLibrary extends Info implements Comparable<Info> {
      *
      * @return el año de la cancion
      */
-    public int getYear() {
+    public long getYear() {
         return year;
     }
 
@@ -60,7 +60,7 @@ public class InfoLibrary extends Info implements Comparable<Info> {
      *
      * @param year año de la cancion asignado por usuario
      */
-    public void setYear(int year) {
+    public void setYear(long year) {
         this.year = year;
     }
 

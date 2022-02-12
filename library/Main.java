@@ -24,6 +24,7 @@ public class Main {
         int optionOderderMajor;
         int opcionOrderDate;
         int opcionPlayList;
+        int optionGetSong;
 
         ArrayList<InfoLibrary> myLibrary = new ArrayList<>();
         InfoLibrary s1 = new InfoLibrary(1, "one", "metallica", 1998, 1.11f, "metal",
@@ -44,21 +45,33 @@ public class Main {
         String[] genderList = {"rock", "punk", "metal", "Rap"};
 
         ArrayList<InfoLibrary> myPlay = new ArrayList<>();
-
+        
         System.out.println("Que deseas hacer? 1) crear playlist 2)filtrar canciones "
                 + "de la lista de reproduccion completa. 3) organizar lista de mayor a menor "
                 + "4) mostrar libreria completa" + "\n" + " Ingresa el numero de la opcion ");
         opcion = scanner.nextInt();
         switch (opcion) {
             case 1:
+                
+                do{
+                    optionGetSong = scanner.nextInt();
+                    System.out.println("selecciona ID de la cancion");
+                    
+                } while(optionGetSong<=1);
                 System.out.println(myLibrary);
                 System.out.println("selecciona ID de la cancion");
                 opcionPlayList = scanner.nextInt();
                 myPlay.add(myLibrary.get(opcionPlayList - 1));
+                
+                
+                
                 System.out.println(myLibrary);
                 System.out.println("selecciona ID de la cancion o muestra playlist nueva");
                 opcionPlayList = scanner.nextInt();
                 myPlay.add(myLibrary.get(opcionPlayList - 1));
+                
+                
+                
                 System.out.println(myPlay);
 
                 break;
