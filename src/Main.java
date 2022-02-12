@@ -1,9 +1,5 @@
 package library;
 
-import classes.PlayList;
-import classes.Song;
-
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -23,9 +19,6 @@ public class Main {
         int opcionOrder;
         int opcionOderderMajor;
         int opcionOrderDate;
-        String namePlayList;
-
-        ArrayList<Song> songs = new ArrayList<>();
 
         List<Info> infoList = new ArrayList<>();
         infoList.add(new Info("muse", "paradise", 1, 2015, 2.11f, "reggae", "memories.jpg", "Cancion 1 del album memories"));
@@ -35,13 +28,11 @@ public class Main {
         infoList.add(new Info("muse", "Panic Station", 4, 2001, 4.11f, "jazz", "memories.jpg", "Cancion 4 del album memories"));
         String[] genderList = {"rock", "punk", "jazz", "reggae"};
 
-        System.out.println("Que deseas hacer?");
-        System.out.println("1)Crear playlist. 2)Filtrar canciones de la lista de reproduccion completa. 3)Organizar lista de mayor a menor");
-        System.out.println("Ingresa el numero de la opcion: ");
+        System.out.println("Que deseas hacer? 1) crear playlist 2)filtrar canciones de la lista de reproduccion completa. 3) organizar lista de mayor a menor Ingresa el numero de la opcion ");
         opcion = scanner.nextInt();
         switch (opcion) {
             case 1:
-                System.out.println("Hola");
+                System.out.print("hola");
                 break;
             case 2:
                 System.out.println("Que tipo de filtro deseas: 1) por año 2) por genero musical. Ingresa el numero de la opcion.");
