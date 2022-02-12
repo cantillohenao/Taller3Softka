@@ -10,70 +10,75 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
+ * [la clase Main sera la clase principal donde efectuamos la aplicacion de la
+ * libreria]
  *
- * @author JUANES
+ *
+ * @version [1.0.000 2022-02-10]
+ *
+ * @author [Juan Esteban, Velasquez Posada ]
+ *
+ * @since [1.0.000 2022-02-10]
+ *
  */
 public class Main {
 
     public static void main(String[] args) {
+        /**
+         * declaracion de variables e instancia de metodo Scanner
+         *
+         */
         Scanner scanner = new Scanner(System.in);
         int opcion;
-        int opcionGender;
-        int opcionYear;
-        int opcionOrder;
+        int optionGender;
+        int optionYear;
+        int optionOrder;
         int optionOderderMajor;
-        int opcionOrderDate;
-        int opcionPlayList;
+        int optionOrderDate;
+        int optionPlayList;
         int optionGetSong;
-
+        /**
+         * Se crea array para almacenar libreria principal
+         */
         ArrayList<InfoLibrary> myLibrary = new ArrayList<>();
         InfoLibrary s1 = new InfoLibrary(1, "one", "metallica", 1998, 1.11f, "metal",
-                "And Justice for All.jpg", "Cancion 2 del album memories");
+                "And Justice for All.jpg", "Cancion 1 del album And Justice for All");
         myLibrary.add(s1);
         InfoLibrary s2 = new InfoLibrary(2, "Lose Yourself", "Eminem", 2002, 1.11f, "Rap",
-                "8 Mile.jpg", "Cancion 1 del album 8 Mile");
+                "8Mile.jpg", "Cancion 1 del album 8 Mile");
         myLibrary.add(s2);
         InfoLibrary s3 = new InfoLibrary(3, "situation", "escape the fate", 2008, 3.12f, "rock",
-                "DyingIsYourLatestFashion.jpg", "Cancion 3 del album memories");
+                "DyingIsYourLatestFashion.jpg", "Cancion 3 del album DyingIsYourLatestFashion");
         myLibrary.add(s3);
         InfoLibrary s4 = new InfoLibrary(4, "Dance macabre", "ghost", 2018, 4.20f, "punk",
-                "prequelle.jpg", "Cancion 4 del album memories");
+                "prequelle.jpg", "Cancion 3 del album prequelle");
         myLibrary.add(s4);
         InfoLibrary s5 = new InfoLibrary(5, "Psychosocial", "slipknot", 2008, 4.11f, "metal",
-                "AllHopeIsGone.jpg", "Cancion 4 del album memories");
+                "AllHopeIsGone.jpg", "Cancion 4 del album AllHopeIsGone");
         myLibrary.add(s5);
         String[] genderList = {"rock", "punk", "metal", "Rap"};
 
+        /**
+         * se crea nuevo array para almacenar la playlist personalizada
+         */
         ArrayList<InfoLibrary> myPlay = new ArrayList<>();
-        
+
         System.out.println("Que deseas hacer? 1) crear playlist 2)filtrar canciones "
                 + "de la lista de reproduccion completa. 3) organizar lista de mayor a menor "
                 + "4) mostrar libreria completa" + "\n" + " Ingresa el numero de la opcion ");
         opcion = scanner.nextInt();
         switch (opcion) {
             case 1:
-                
-                do{
+                System.out.println(myLibrary);
+                do {
+                    System.out.println("selecciona ID de la cancion a agregar a la playlist");
+                    optionPlayList = scanner.nextInt();
+                    myPlay.add(myLibrary.get(optionPlayList - 1));
+                    System.out.println("¿Que desear hacer ahora?");
+                    System.out.println(" 1) Agregar otra cancion a la playlist 2) Mostrar playlist" + "\n" + "Ingresa el numero de la opcion");
                     optionGetSong = scanner.nextInt();
-                    System.out.println("selecciona ID de la cancion");
-                    
-                } while(optionGetSong<=1);
-                System.out.println(myLibrary);
-                System.out.println("selecciona ID de la cancion");
-                opcionPlayList = scanner.nextInt();
-                myPlay.add(myLibrary.get(opcionPlayList - 1));
-                
-                
-                
-                System.out.println(myLibrary);
-                System.out.println("selecciona ID de la cancion o muestra playlist nueva");
-                opcionPlayList = scanner.nextInt();
-                myPlay.add(myLibrary.get(opcionPlayList - 1));
-                
-                
-                
+                } while (optionGetSong <= 1);
                 System.out.println(myPlay);
-
                 break;
             case 2:
                 System.out.println("Que tipo de filtro deseas: 1) por año "
@@ -83,31 +88,33 @@ public class Main {
                 if (opcionFilter == 1) {
                     System.out.println("De que año deseas traer musica? "
                             + "\n" + " Ingresa el numero el año. desde 2000 hasta 2022");
-                    opcionYear = scanner.nextInt();
-                    myLibrary.stream().filter(l -> l.getYear() == opcionYear).forEach(System.out::println);
+                    optionYear = scanner.nextInt();
+                    myLibrary.stream().filter(l
+                            -> l.getYear() == optionYear).forEach(System.out::println);
                 } else if (opcionFilter == 2) {
                     System.out.println("Que genero deseas filtrar: 1)rock 2)punk 3) metal. "
                             + "\n" + " Ingresa el numero correspondiente");
-                    opcionGender = scanner.nextInt();
-                    myLibrary.stream().filter(l -> l.getGender() == genderList[opcionGender - 1]).forEach(System.out::println);
+                    optionGender = scanner.nextInt();
+                    myLibrary.stream().filter(l
+                            -> l.getGender() == genderList[optionGender - 1]).forEach(System.out::println);
                 }
             case 3:
                 System.out.println("Desear organizar por: 1) duracion de la cancion "
                         + "2) fecha. " + "\n" + " Ingresa el numero correspondiente");
-                opcionOrder = scanner.nextInt();
-                if (opcionOrder == 1) {
+                optionOrder = scanner.nextInt();
+                if (optionOrder == 1) {
                     System.out.println("Desear organizar de: 1)Por menor duracion de la cancion "
                             + "2)Por mayor duracion de la cancion. " + "\n" + " Ingresa el numero correspondiente");
                     optionOderderMajor = scanner.nextInt();
                     switch (optionOderderMajor) {
                         case 1:
-                            Collections.sort(myLibrary);
+                            Collections.sort(myLibrary); // Se organiza de menor a  mayor  duracion
                             for (Info elem : myLibrary) {
                                 System.out.println(elem);
                             }
                             break;
                         case 2:
-                            Collections.sort(myLibrary, Collections.reverseOrder()); // mayor a menor duracion
+                            Collections.sort(myLibrary, Collections.reverseOrder()); // Se organiza de mayor a menor duracion
                             for (Info elem : myLibrary) {
                                 System.out.println(elem);
                             }
@@ -115,19 +122,19 @@ public class Main {
                         default:
                             System.out.println("ups, esa no era una opcion correcta, comienza de nuevo por favor");
                     }
-                } else if (opcionOrder == 2) {
+                } else if (optionOrder == 2) {
                     System.out.println("Desear organizar de: 1)Por fecha mas actual  "
                             + "2)Por fecha mas antigua." + "\n" + " Ingresa el numero correspondiente");
-                    opcionOrderDate = scanner.nextInt();
-                    switch (opcionOrderDate) {
+                    optionOrderDate = scanner.nextInt();
+                    switch (optionOrderDate) {
                         case 1:
-                            Collections.sort(myLibrary, new OrderYear());
+                            Collections.sort(myLibrary, new OrderYear()); //Se organiza de menor a  mayor  duracion
                             for (Info year : myLibrary) {
                                 System.out.println(year);
                             }
                             break;
                         case 2:
-                            Collections.sort(myLibrary, Collections.reverseOrder()); // mayor a menor duracion
+                            Collections.sort(myLibrary, Collections.reverseOrder()); // Se organiza de mayor a menor duracion
                             for (Info elem : myLibrary) {
                                 System.out.println(elem);
                             }
