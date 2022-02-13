@@ -1,7 +1,12 @@
 package library;
 
+import library.OrderYear;
+import library.InfoLibrary;
+import java.util.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -21,25 +26,25 @@ public class Main {
         int opcionPlayList;
         int optionGetSong;
 
-        ArrayList<infoLibrary> myLibrary = new ArrayList<>();
-        infoLibrary s1 = new infoLibrary(1, "one", "metallica", 1998, 1.11f, "metal",
+        ArrayList<InfoLibrary> myLibrary = new ArrayList<>();
+        InfoLibrary s1 = new InfoLibrary(1, "one", "metallica", 1998, 1.11f, "metal",
                 "And Justice for All.jpg", "Cancion 2 del album memories");
         myLibrary.add(s1);
-        infoLibrary s2 = new infoLibrary(2, "Lose Yourself", "Eminem", 2002, 1.11f, "Rap",
+        InfoLibrary s2 = new InfoLibrary(2, "Lose Yourself", "Eminem", 2002, 1.11f, "Rap",
                 "8 Mile.jpg", "Cancion 1 del album 8 Mile");
         myLibrary.add(s2);
-        infoLibrary s3 = new infoLibrary(3, "situation", "escape the fate", 2008, 3.12f, "rock",
+        InfoLibrary s3 = new InfoLibrary(3, "situation", "escape the fate", 2008, 3.12f, "rock",
                 "DyingIsYourLatestFashion.jpg", "Cancion 3 del album memories");
         myLibrary.add(s3);
-        infoLibrary s4 = new infoLibrary(4, "Dance macabre", "ghost", 2018, 4.20f, "punk",
+        InfoLibrary s4 = new InfoLibrary(4, "Dance macabre", "ghost", 2018, 4.20f, "punk",
                 "prequelle.jpg", "Cancion 4 del album memories");
         myLibrary.add(s4);
-        infoLibrary s5 = new infoLibrary(5, "Psychosocial", "slipknot", 2008, 4.11f, "metal",
+        InfoLibrary s5 = new InfoLibrary(5, "Psychosocial", "slipknot", 2008, 4.11f, "metal",
                 "AllHopeIsGone.jpg", "Cancion 4 del album memories");
         myLibrary.add(s5);
         String[] genderList = {"rock", "punk", "metal", "Rap"};
 
-        ArrayList<infoLibrary> myPlay = new ArrayList<>();
+        ArrayList<InfoLibrary> myPlay = new ArrayList<>();
         
         System.out.println("Que deseas hacer? 1) crear playlist 2)filtrar canciones "
                 + "de la lista de reproduccion completa. 3) organizar lista de mayor a menor "
@@ -47,16 +52,28 @@ public class Main {
         opcion = scanner.nextInt();
         switch (opcion) {
             case 1:
-                System.out.println(myLibrary);
+                
                 do{
-                    System.out.println("selecciona ID de la cancion a agregar a la playlist");
-                    opcionPlayList = scanner.nextInt();
-                    myPlay.add(myLibrary.get(opcionPlayList - 1));
-                    System.out.println("¿Que desear hacer ahora?");
-                    System.out.println(" 1) Agregar otra cancion a la playlist 2) Mostrar playlist");
                     optionGetSong = scanner.nextInt();
+                    System.out.println("selecciona ID de la cancion");
+                    
                 } while(optionGetSong<=1);
+                System.out.println(myLibrary);
+                System.out.println("selecciona ID de la cancion");
+                opcionPlayList = scanner.nextInt();
+                myPlay.add(myLibrary.get(opcionPlayList - 1));
+                
+                
+                
+                System.out.println(myLibrary);
+                System.out.println("selecciona ID de la cancion o muestra playlist nueva");
+                opcionPlayList = scanner.nextInt();
+                myPlay.add(myLibrary.get(opcionPlayList - 1));
+                
+                
+                
                 System.out.println(myPlay);
+
                 break;
             case 2:
                 System.out.println("Que tipo de filtro deseas: 1) por año "
