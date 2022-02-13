@@ -1,5 +1,9 @@
 package library;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 /**
  * [la clase InfoLibrary extiende de la clase Info, donde organizamos cada
  * parametro de la clase Info
@@ -11,9 +15,9 @@ package library;
  * @since [1.0.000 2022-02-10]
  *
  */
-public class infoLibrary extends Info implements Comparable<Info> {
+public class InfoLibrary extends Info implements Comparable<Info> {
 
-    public infoLibrary(int songId, String title, String artist, long year, float duration, String gender, String cover, String description) {
+    public InfoLibrary(int songId, String title, String artist, long year, float duration, String gender, String cover, String description) {
         this.songId = songId;
         this.title = title;
         this.artist = artist;
